@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.mapper.DataMapper">
+  <resultMap id="BaseResultMap" type="com.ssm.dao.model.DataDo">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="PHONE_NUMBER" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="IP_ADDRESS" jdbcType="VARCHAR" property="ipAddress" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PHONE_NUMBER, IP, CREATE_TIME, PASSWORD, IP_ADDRESS
+  </sql>
+  <select id="selectByKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from user
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.ssm.dao.model.DataDo">
+    insert into user (ID, PHONE_NUMBER, IP, 
+      CREATE_TIME, PASSWORD, IP_ADDRESS
+      )
+    values (#{id,jdbcType=BIGINT}, #{phoneNumber,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{password,jdbcType=VARCHAR}, #{ipAddress,jdbcType=VARCHAR}
+      )
+  </insert>
+</mapper>
