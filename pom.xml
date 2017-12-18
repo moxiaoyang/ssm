@@ -34,24 +34,6 @@
         <zkclient.version>0.10</zkclient.version>
     </properties>
 
-    <dependencies>
-        <!--日志框架-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.25</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.baofu.international</groupId>
-            <artifactId>cross-border-logback-ex</artifactId>
-        </dependency>
-    </dependencies>
-
     <!-- 此处所有依赖会被子模块完全继承，且子模块并不需要在pom文件中引入 -->
     <dependencyManagement>
         <dependencies>
@@ -64,6 +46,23 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <!--日志框架-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baofu.international</groupId>
+            <artifactId>cross-border-logback-ex</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>ssm-parent</finalName>
