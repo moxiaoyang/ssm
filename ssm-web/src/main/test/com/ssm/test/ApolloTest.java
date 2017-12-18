@@ -1,14 +1,18 @@
 package com.ssm.test;
 
 
+import com.baofu.global.cross.border.logback.ex.constant.MDCPropertyConsts;
 import com.ssm.dao.mapper.DataMapper;
 import com.ssm.dao.model.DataDo;
-
-
-import org.junit.Test;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.testng.annotations.Test;
+
+import java.util.UUID;
 
 
+@Slf4j
 public class ApolloTest extends BaseTest {
 
     @Autowired
@@ -16,7 +20,9 @@ public class ApolloTest extends BaseTest {
 
     @Test
     public void test_01() {
-        DataDo dataDo = dataMapper.selectByKey(1L);
-        System.out.println(dataDo);
+        MDC.put(MDCPropertyConsts.TRACE_LOG_ID, UUID.randomUUID().toString());
+        DataDo dataDo =  dataMapper.selectByKey(1L);
+        log.info("call dataDao = {}",dataDo);
     }
+
 }

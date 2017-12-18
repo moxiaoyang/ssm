@@ -1,8 +1,10 @@
 package com.ssm.config;
 
 
+import com.ssm.dao.mapper.DataMapper;
 import com.ssm.integration.PropertyInitConfig;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -15,6 +17,7 @@ import javax.servlet.ServletContextListener;
  */
 @Slf4j
 public class PropertyInitListener implements ServletContextListener {
+
 
     /**
      * @param servletContextEvent

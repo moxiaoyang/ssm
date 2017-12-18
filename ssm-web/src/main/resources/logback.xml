@@ -10,13 +10,13 @@
         </encoder>
     </appender>
     <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>/log/ssm/core.log</File>
+        <File>/log/baofoo4/global/account/core.log</File>
         <encoder>
             <Pattern>[%date] [%-5level] [%tracelogid] %logger{10} %line --%mdc{client} %msg%n</Pattern>
             <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/log/ssm/core-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>/log/baofoo4/global/account/core-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>512MB</maxFileSize>

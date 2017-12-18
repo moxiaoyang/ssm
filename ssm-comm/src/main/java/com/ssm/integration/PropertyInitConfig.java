@@ -1,6 +1,8 @@
 package com.ssm.integration;
 
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
@@ -11,9 +13,14 @@ import java.util.Properties;
 
 /**
  * 初始化系统配置
+ *
  * @author 莫小阳
  */
-public class PropertyInitConfig {
+@Slf4j
+public final class PropertyInitConfig {
+
+    private PropertyInitConfig() {
+    }
 
     /**
      * web项目初始化配置
@@ -23,6 +30,7 @@ public class PropertyInitConfig {
         try {
             URL resource = PropertyInitConfig.class.getClassLoader().getResource("/");
             if (resource == null) {
+                log.error("call web项目初始化配置失败，resource= null");
                 System.exit(0);
             }
             File file = new File(resource.getPath().concat("META-INF/config.properties"));
@@ -35,6 +43,7 @@ public class PropertyInitConfig {
                 }
             }
         } catch (Exception e) {
+            log.error("call web项目初始化配置失败,{}", e);
         }
     }
 
